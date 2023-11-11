@@ -1,0 +1,51 @@
+.position{
+  position:sticky static;
+    top:60%;
+    left:60%;
+    transform: translate(-50%,-50%);
+}
+.slider{
+    background-image: url(imagenes/camisetas/2.jpg);
+    background-size: contain;
+    height:60%;
+    width:60%;
+    border-radius: 20px;
+    animation: animate 10s infinite;
+}
+@keyframes animate{
+    20%{background-image:url(imagenes/camisetas/camiseta1.jpg);
+        background-size:contain;
+    }
+    20%{
+        background-image:url(imagenes/camisetas/camiseta2.jpg);
+        background-size: contain;
+    }
+    40%{background-image:url(imagenes/camisetas/camiseta3.jpg);
+        background-size: contain;
+
+    }
+    40%{background-image:url(imagenes/camisetas/camiseta4.jpg);
+        background-size: contain;}
+    60%{background-image:url(imagenes/camisetas/camiseta5.jpg);
+        background-size: contain;}
+     60%{
+            background-image:url(imagenes/camisetas/2.jpg);
+        background-size: contain;
+        }
+        80%{
+            background-image:url(imagenes/camisetas/3.jpg);
+                background-size: contain;
+        }        
+80%{
+    background-image:url(imagenes/camisetas/4.jpg);
+        background-size: contain;
+}
+80%{
+    background-image:url(imagenes/camisetas/5.jpg);
+        background-size: contain;
+}
+100%{
+    background-image:url(imagenes/camisetas/6.jpg);
+        background-size: contain;
+}
+}

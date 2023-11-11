@@ -1,0 +1,177 @@
+<?php
+include ('conexion.php');
+$sele="SELECT id_cliente,nombre_cliente,direccion,localidad FROM cliente ";
+$rta=$cone->query($sele);
+?>
+<?php
+include ('conexion.php');
+$sele1="SELECT  ventas, prenda, clientes, sucursales FROM ventas";
+$rta1=$cone->query($sele1);
+?>
+<?php
+include ('conexion.php');
+$sele2="SELECT  id_sucursales,nombre,localidad FROM sucursales";
+$rta2=$cone->query($sele2);
+?>
+<?php
+include ('conexion.php');
+$sele3="SELECT  id_localidad,nombre,codigo_postal FROM localidad";
+$rta3=$cone->query($sele3);
+?>
+<?php
+include ('conexion.php');
+$sele4="SELECT id_prenda,marca,vestimenta,proveedor,talles,precios,cantidad FROM prendas ";
+$rta4=$cone->query($sele4);
+?>
+<?php
+include ('conexion.php');
+$sele5="SELECT id_vestimenta,nombre_vestimenta FROM vestimenta";
+$rta5=$cone->query($sele5);
+?>
+<?php
+include ('conexion.php');
+$sele6="SELECT id_marca,nombre_marca FROM marcas";
+$rta6=$cone->query($sele6);
+?>
+<?php
+include ('conexion.php');
+$sele7="SELECT id_talle,numero_talla FROM talles";
+$rta7=$cone->query($sele7);
+?>
+<?php
+include ('conexion.php');
+$sele8="SELECT id_proveedor,nombre_pro FROM proveedor";
+$rta8=$cone->query($sele8);
+?>
+------------------------------------------------------------------------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+  <title>Tienda de Indumentaria</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body bgcolor="#dee3f3">
+  <h3>ROPA</h3>
+  <form action="guardar_cliente.php" method="get">
+  Ingrese el cliente 
+		<input type="text" name="cliente">
+		<br>
+		Ingrese la Localidad
+		<select name="localidad">
+			<option value="0">Selecciona una Localidad</option>
+                    <?php 
+                        while($dato4= $rta->fetch_assoc()) {
+                            echo "<option value='".$dato4["id_cliente"]."'>".$dato4["nombre_cliente"]." ".$dato4['direccion']."</option>";
+                                }
+                    ?>
+        </select>
+		<br>
+		Ingrese la direccion
+		<input type="text" name="direccion">
+		<br>
+		<input type="submit" name="" value="Guardar">
+	</form>
+	<br>
+	<a href="mostrarcliente.php"><button>Lista</button> </a>
+	<br>
+	<br>
+	<hr>
+	<h3>Sucursales</h3>
+  <form action="guardarsucur.php" method="get">
+  Ingrese el nombre de la sucursal
+		<input type="text" name="nombre">
+		<br>
+		Ingrese la Localidad
+		<select name="localidad">
+			<option value="0">Selecciona una prenda</option>
+                    <?php
+                        while($dato4= $rta2->fetch_assoc()) {
+                            echo "<option value='".$dato4["id_sucursales"]."'>".$dato4["nombre"]." ".$dato4['localidad']."</option>";
+                                }
+                    ?>
+        </select>
+		<br>
+		<input type="submit" name="" value="Guardar">
+		<a href="mostrarsucu.php"><button>Lista</button> </a>
+  </form>
+	<br>
+	<hr>
+	<h3>Localidad</h3>
+  <form action="guardarlocali.php" method="get">
+  Ingrese el cliente 
+		<select name="cliente">
+			<option value="0">Selecciona el cliente</option>
+                    <?php 
+                        while($dato4= $rta->fetch_assoc()) {
+                            echo "<option value='".$dato4["id_cliente"]."'>".$dato4["nombre_cliente"]." ".$dato4['direccion']."</option>";
+                                }
+                    ?>
+        </select>
+		<br>
+		Ingrese la Localidad
+		<select name="localidad">
+			<option value="0">Selecciona una Localidad</option>
+                    <?php 
+                        while($dato5= $rta3->fetch_assoc()) {
+                            echo "<option value='".$dato5["id_localidad"]."'>".$dato5["nombre_De_la_localidad"]." ".$dato5['Codigo_postal']."</option>";
+                                }
+                    ?>
+        </select>
+		<br>
+		Ingrese el codigo postal
+		<input type="text" name="codigo">
+		<br>
+		<input type="submit" name="" value="Guardar">
+	</form>
+	<br>
+	<a href="mostrarLoca.php"><button>Lista</button> </a>
+	<br>
+	<hr>
+<h3>MARCAS</h3>
+  <form action="guardarmarca.php" method="get">
+		Ingrese el nombre de la marca
+		<select name="marca">
+			<option value="0">Selecciona una marca</option>
+                    <?php 
+                        while($dato6= $rta6->fetch_assoc()) {
+                            echo "<option value='".$dato6["id_marca"]."'>".$dato6["nombre_marca"]."</option>";}?>
+		<br>
+		<input type="submit" name="" value="Guardar">
+	</form>
+	<br>
+	<a href="mostrarmarca.php"><button>Lista</button> </a>
+	<br>
+	<hr>
+	<h3>Talles</h3>
+	<form action="guardarTalle.php" method="get">
+	<select name="talle">
+			<option value="0">Seleccione el talle</option>
+                    <?php 
+                        while($dato7= $rta7->fetch_assoc()) {
+                            echo "<option value='".$dato7["id_talle"]."'>".$dato7["numero_talla"]."</option>";}?>
+		<br>
+		<input type="submit" name=" " value="Guardar">
+	</form>
+	<a href="mostrarTalles.php"><button>Lista</button> </a><br>
+	<hr>
+	 <form action="guardarPro.php" method="get">
+	 <h3>Proveedor</h3>
+	 <input type="text" name="proveedor">
+		<br>
+		<input type="submit" name=" " value="Guardar">
+	</form>
+	<a href="mostrarPro.php"><button>Lista</button> </a><br>
+	<hr>
+	<h3>ventas</h3>
+	<form action="guardarventas.php" method="get">
+	<input type="text" name="ventas">
+	<h4>cliente</h4>
+	<input type="text" name="ventas"><br>
+	<input type="submit" name="" value="Guardar">
+	<a href="mostrarventas.php"><button>Lista</button></a>
+	</form>
+</body>
+</html>
