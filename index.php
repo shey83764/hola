@@ -43,7 +43,8 @@ $rta8=$cone->query($sele8);
   Ingrese el cliente 
 		<input type="text" name="cliente">
 		<br>
-		Ingrese la Localidad
+		Ingrese la Localidad 
+<input type="text" name="localidad"><br>
 		<select name="localidad">
 			<option value="0">Selecciona una Localidad</option>
                     <?php 
@@ -70,6 +71,8 @@ $rta8=$cone->query($sele8);
 		<input type="text" name="nombre">
 		<br>
 		Ingrese la Localidad
+<input type="text" name="localidad">
+<br>
 		<select name="localidad">
 			<option value="0">Seleccione la localidad</option>
                     <?php
@@ -89,6 +92,7 @@ $rta8=$cone->query($sele8);
   <form action="guardarlocali.php" method="get">
 		<br>
 		Ingrese la Localidad
+<input type="text" name="localidad"><br>
 		<select name="localidad">
 			<option value="0">Selecciona una Localidad</option>
                     <?php 
@@ -135,14 +139,16 @@ $rta8=$cone->query($sele8);
 	</form>
 	<a href="mostrarTalles.php"><button>Lista</button> </a><br>
 	<hr>
-	 <form action="guardarPro.php" method="get">
-	 <h3>Proveedor</h3>
+
+<h3>Proveedor</h3>
+	 <form action="guardarPro.php" method="get">
 	 <input type="text" name="proveedor">
 		<br>
 		<input type="submit" name=" " value="Guardar">
 	</form>
 	<a href="mostrarPro.php"><button>Lista</button> </a><br>
 	<hr>
+
 	<h3>ventas</h3>
 	<form action="guardarventas.php" method="get">
 	<input type="text" name="ventas">
@@ -156,6 +162,8 @@ $rta8=$cone->query($sele8);
                                 }
                     ?>
         </select>
+ingrese la prenda 
+<input type="text" name="prenda">
 
 	<a href="mostrarventas.php"><button>Lista</button></a>
 	</form>
