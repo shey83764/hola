@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-$sel1="SELECT * from cliente";
+$selct="SELECT * from cliente";
 ?>
 <!DOCTYPE html>
 <html lang="en">
